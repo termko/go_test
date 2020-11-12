@@ -6,8 +6,7 @@ import (
 	"strconv"
 )
 
-// FirstTask of Sergio
-func FirstTask() {
+func firstTask() {
 	var n int
 	var res int = 0
 
@@ -37,8 +36,7 @@ func digitSum(n int) int {
 	return ret
 }
 
-// SecondTask of Sergio
-func SecondTask() {
+func secondTask() {
 	var n int
 	var n1 int = 0
 	var n2 int = 1
@@ -67,6 +65,6 @@ func SecondTask() {
 }
 
 func main() {
-	FirstTask()
-	SecondTask()
+	firstTask()
+	secondTask()
 }
