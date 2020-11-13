@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"os"
 	"strconv"
 )
@@ -64,7 +65,43 @@ func secondTask() {
 	}
 }
 
+func thirdTask() {
+	if len(os.Args) < 2 {
+		fmt.Printf("Usage: %s <files>\n", os.Args[0])
+		return
+	}
+	for i := 1; i < len(os.Args); i++ {
+
+		f, err := os.Open(os.Args[i])
+		if err != nil {
+			fmt.Println(err)
+			continue
+		}
+		defer f.Close()
+
+		buf := make([]byte, 1024)
+
+		for {
+			n, err := f.Read(buf)
+
+			if n > 0 {
+				os.Stdout.Write(buf[:n])
+			}
+
+			if err == io.EOF {
+				break
+			}
+
+			if err != nil {
+				fmt.Println(err)
+				break
+			}
+		}
+	}
+}
+
 func main() {
-	firstTask()
-	secondTask()
+	// firstTask()
+	// secondTask()
+	thirdTask()
 }
