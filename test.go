@@ -99,9 +99,3 @@ func thirdTask() {
 		}
 	}
 }
-
-func main() {
-	// firstTask()
-	// secondTask()
-	thirdTask()
-}
